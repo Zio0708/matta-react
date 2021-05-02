@@ -1,15 +1,26 @@
 import React from 'react';
 import axios from 'axios';
 
-//const POST_REST_API_URL = 'http://localhost:8080/api/v1/post';
-//TODO: POST API를 실제 API로 변경하기.
-const POST_REST_API_URL = 'http://jsonplaceholder.typicode.com/users';
+const POST_REST_API_URL = '/api/v1/post';
 
 class PostService {
 
-    getPosts = () => { 
-        return axios.get(POST_REST_API_URL);
+    getAllPost = () => { 
+        return axios.get( POST_REST_API_URL );
     };
+
+    //TODO: 하단의 REST API 완성하기.
+    savePost = (id) => {
+        return axios.post( POST_REST_API_URL + id );
+    };
+
+    updatePost = (id) => {
+        return axios.put( POST_REST_API_URL + id );
+    }
+
+    deletePost = (id) => {
+        return axios.put( POST_REST_API_URL + id );
+    }
 
 };
 
