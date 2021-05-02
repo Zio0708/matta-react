@@ -6,20 +6,12 @@ import '../css/Main.css';
 import axios from 'axios';
 
 const Main = () => { 
-  const [posts, setPosts] = useState("");
-//   useEffect(() => {
-//     axios.get('/')
-//         .then( response => { console.log( "no"+response ); } )
-//         .catch( response => { console.log( response ); } );
-//     axios.get('/api/hello')
-//         .then( response => { console.log( response ); } )
-//         .catch( response => { console.log( response ); });
-        
-//     });
+    const [posts, setPosts] = useState("");
+
     useEffect(() => {
-        PostService.getPosts()
+        PostService.getAllPost()
         //axios.get('http://jsonplaceholder.typicode.com/users')
-            .then( response => { console.log( response.data); } )
+            .then( response => { console.log( response ); } )
             .catch( response => { console.log( response ); } )
 
     });
@@ -33,6 +25,7 @@ const Main = () => {
                     폴더
                 </div>
                 <div className="feeds-wrapper">
+                    <div>글 작성은 어디들어가나요 선생님</div>
                     <div className="feeds-grid-wrapper">
                         <div>1</div>
                         <div>2</div>

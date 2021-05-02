@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Map from './Map';
 import '../css/Main.css';
+import SavePostContainer from '../components/SavePostContainer';
 
 const SavePost = () => { 
     return(
@@ -13,10 +14,10 @@ const SavePost = () => {
                     폴더
                 </div>
                 <div className="feeds-wrapper">
-                    글내용이 들어갈 예정입니다
+                    <SavePostContainer/>
                 </div>
                 <div className="map-wrapper">
-                <Map></Map> 
+                    <Map></Map> 
                 <div className="map-search-wrapper"> 검색 기능 들어감</div>
                 </div>
             </div>
