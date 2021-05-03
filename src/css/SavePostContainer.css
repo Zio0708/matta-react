@@ -1,0 +1,67 @@
+.root-table{
+    align-items: center;
+    border: 0;
+    width: 100%;
+}
+
+.table-name{
+    height: 45px;
+    text-align: center;
+    background-color: lightslategray;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.content-table-start{
+    background-color: white;
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin: 20px 10px;
+}
+
+.content-table-start tr{
+    width: 100%;
+    padding: 100px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+.content-table-start td, .content-table-start th{  
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+.content-table-start td{
+    width: 82%;
+}
+
+.content-table-start th{
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+    min-width: 70px;
+}
+
+#visitedDate {
+    width: 30%;
+    min-width: 130px;
+}
+
+#content, #comment{
+    width:90%;
+}
+
+#content{
+    height: 80px;
+}
+
+.content-table-start td input:focus, .content-table-start td textarea:focus{
+    outline:1px gray solid;
+    
+}
