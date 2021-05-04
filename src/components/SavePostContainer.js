@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
 import SaveIcon from '@material-ui/icons/Save';
 
-//css
+// css
 import '../css/SavePostContainer.css';
 
-//별점
+// 별점
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Rating from '@material-ui/lab/Rating';
 
-// // date picker 관련 import 
-// import 'date-fns';
-// import DateFnsUtils from '@date-io/date-fns';
-// import {
-//     MuiPickersUtilsProvider,
-//     KeyboardDatePicker
-// } from '@material-ui/core/pickers';
-
+// datePicker
+import 'date-fns';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+    MuiPickersUtilsProvider,
+    DatePicker,
+}from '@material-ui/pickers';
+import koLocale from "date-fns/locale/ko";
 
 const UseStyles = makeStyles((theme) => ({
     button: {
@@ -29,16 +29,19 @@ const UseStyles = makeStyles((theme) => ({
 );
 
 const SavePostContainer = () => { 
-    
-    // const [selectedDate, setSelectedDate] = useState(new Date());
-    // const handleDateChange = (date) => {
-    //     setSelectedDate(date);
-    // };
 
     const classes = UseStyles();
-    const [tastValue, setTastStarValue] = React.useState(2);
-    const [moodValue, setMoodStarValue] = React.useState(2);
-    const [priceValue, setPriceStarValue] = React.useState(2);
+
+    // starRating
+    const [tastValue, setTastStarValue] = useState(2);
+    const [moodValue, setMoodStarValue] = useState(2);
+    const [priceValue, setPriceStarValue] = useState(2);
+
+    // DatePicker
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
 
     return (
         <div>
@@ -53,21 +56,19 @@ const SavePostContainer = () => {
                                 <tr>
                                     <th scope="row">방문일</th>
                                     <td>
-                                        <input type="text" id="visitedDate"></input>
-
-                                        {/* Todo : DatePicker 로 방문일 추가*/}
-                                        {/* <MuiPickersUtilsProvider uitls={DateFnsUtils}>
-                                            <KeyboardDatePicker
+                                        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={koLocale}>
+                                            <DatePicker
+                                                disableFuture
+                                                autoOk
                                                 id="visitedDate"
-                                                label="방문 날짜"
-                                                foramt="yyyy/MM/dd"
+                                                format="yyyy/MM/dd"
                                                 value={selectedDate}
                                                 onChange={handleDateChange}
                                                 KeyboardButtonProps={{
                                                     'aria-label': 'change date',
                                                 }}
                                             />
-                                            </MuiPickersUtilsProvider> */}
+                                            </MuiPickersUtilsProvider>
                                     </td>
                                 </tr>
                                 <tr>
