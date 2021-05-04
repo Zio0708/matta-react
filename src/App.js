@@ -6,6 +6,7 @@ import Main from './components/Main';
 import SaveAddressPage from './components/SaveAddressPage';
 import SavePost from './components/SavePost';
 import { Route } from 'react-router-dom';
+import UploadPicturePage from './components/UploadPicturePage';
 
 function App() {
   
@@ -15,13 +16,8 @@ function App() {
       <Route path="/" component={Main} exact/>
       <Route path="/home" component={Home} />
       <Route path="/post/save" component={SavePost} />
+      <Route path="/picture" component={UploadPicturePage} />
       <Route path="/map" component={SaveAddressPage} />
-      
-      {/* <div className="App">
-        <div>메시지는 : {message}</div>
-        <Header></Header>
-        <Main></Main>
-      </div> */}
     </div>
   );
 }
