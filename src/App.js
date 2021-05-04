@@ -3,6 +3,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import Home from './components/Home';
 import Main from './components/Main';
+import SaveAddressPage from './components/SaveAddressPage';
 import SavePost from './components/SavePost';
 import { Route } from 'react-router-dom';
 import UploadPicturePage from './components/UploadPicturePage';
@@ -16,7 +17,7 @@ function App() {
       <Route path="/home" component={Home} />
       <Route path="/post/save" component={SavePost} />
       <Route path="/picture" component={UploadPicturePage} />
-      
+      <Route path="/map" component={SaveAddressPage} />
     </div>
   );
 }
