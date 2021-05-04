@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
@@ -6,6 +6,11 @@ import SaveIcon from '@material-ui/icons/Save';
 
 //css
 import '../css/SavePostContainer.css';
+
+//별점
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Rating from '@material-ui/lab/Rating';
 
 // // date picker 관련 import 
 // import 'date-fns';
@@ -23,7 +28,7 @@ const UseStyles = makeStyles((theme) => ({
   })
 );
 
-const savePostContainer = () => { 
+const SavePostContainer = () => { 
     
     // const [selectedDate, setSelectedDate] = useState(new Date());
     // const handleDateChange = (date) => {
@@ -31,6 +36,9 @@ const savePostContainer = () => {
     // };
 
     const classes = UseStyles();
+    const [tastValue, setTastStarValue] = React.useState(2);
+    const [moodValue, setMoodStarValue] = React.useState(2);
+    const [priceValue, setPriceStarValue] = React.useState(2);
 
     return (
         <div>
@@ -74,8 +82,47 @@ const savePostContainer = () => {
                                         <input type="text" id="comment" placeholder="한줄평을 입력해주세요"></input>
                                     </td>
                                 </tr>
-
-                                {/* Todo : 별점(맛, 분위기, 가격)*/}
+                                <tr>
+                                    <th scope="row">별점</th>
+                                    <td>
+                                        <Box component="fieldset" mb={1} borderColor="transparent">
+                                            <Typography component="legend">맛</Typography>
+                                            <Rating 
+                                                name="tastStarRating"
+                                                defaultValue={3}
+                                                value={tastValue}
+                                                size="large"
+                                                onChange={(event, newTastValue) => {
+                                                    setTastStarValue(newTastValue);
+                                                }
+                                            }/>
+                                        </Box>
+                                        <Box component="fieldset" mb={1} borderColor="transparent">
+                                            <Typography component="legend">분위기</Typography>
+                                            <Rating 
+                                                name="moodStarRating"
+                                                defaultValue={3}
+                                                value={moodValue}
+                                                size="large"
+                                                onChange={(event, newMoodValue) => {
+                                                    setMoodStarValue(newMoodValue);
+                                                }
+                                            }/>
+                                        </Box>
+                                        <Box component="fieldset" mb={1} borderColor="transparent">
+                                            <Typography component="legend">가격</Typography>
+                                            <Rating 
+                                                name="priceStarRating"
+                                                defaultValue={3}
+                                                value={priceValue}
+                                                size="large"
+                                                onChange={(event, newPriceValue) => {
+                                                    setPriceStarValue(newPriceValue);
+                                                }
+                                            }/>
+                                        </Box>
+                                    </td>
+                                </tr>
                             </table>
 
                             <center>
@@ -95,4 +142,4 @@ const savePostContainer = () => {
         </div>
     );
 }
-export default savePostContainer;
+export default SavePostContainer;
