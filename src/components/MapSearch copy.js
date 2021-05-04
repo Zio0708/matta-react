@@ -3,11 +3,10 @@ import '../css/Map.css';
 
 const { kakao } = window;
 
-const MapSearch = ({searchPlace}) => { 
-    //TODO: 리스트 클릭시 해당 정보가 넘어가게 하기.
+const Map = () => { 
     useEffect(() => {
         mapInit();
-    }, [searchPlace]);
+    }, []);
 
     const mapInit = () => {
         let markers = [];
@@ -24,10 +23,27 @@ const MapSearch = ({searchPlace}) => {
 
         const ps = new kakao.maps.services.Places();
 
-        ps.keywordSearch( searchPlace, placesSearchCB );
+        searchPlaces();
+
+        function searchPlaces() {
+            let keyword = document.getElementById('keyword').value;
+
+            if (!keyword.replace(/^\s+|\s+$/g, '')) {
+                alert('키워드를 입력해주세요!');
+                return false;
+            }
+        
+            ps.keywordSearch( keyword, placesSearchCB);
+        }
 
         function placesSearchCB(data, status, pagination){
             if(status === kakao.maps.services.Status.OK){
+                // let bounds = new kakao.maps.LatLngBounds();
+                // for(let i = 0 ; i < data.length ; i++ ){
+                //     displayMarker(data[i]);
+                //     bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                // }
+                // map.setBounds(bounds);
 
                 displayPlaces(data);
 
@@ -191,6 +207,7 @@ const MapSearch = ({searchPlace}) => {
         // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
         // 인포윈도우에 장소명을 표시합니다
         function displayInfowindow(marker, title) {
+            //var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
             let content = '<div>' + title + '</div>';
             infowindow.setContent(content);
             infowindow.open(map, marker);
@@ -203,16 +220,39 @@ const MapSearch = ({searchPlace}) => {
             }
         }
 
+        // function displayMarker(place){ 
+        //     let marker = new kakao.maps.Marker({
+        //         map: map,
+        //         position: new kakao.maps.LatLng(place.y, place.x)
+        //     });
+
+        //     kakao.maps.event.addListener(marker, 'click', function(){
+        //         infowindow.setContent('<div>' + place.place_name + '</div>');
+        //         infowindow.open(map, marker);
+        //     })
+        // }
+
     };
 
     return (
         <>
+        <div class="map_wrap">
             <div id="map-content"></div>
-            <div id="menu_wrap" class="bg_white">   
+            <div id="menu_wrap" class="bg_white">
+                <div class="option">
+                    <div>
+                        <form onsubmit="searchPlaces(); return false;">
+                            키워드 : <input type="text" value="이태원 맛집" placeholder="맛집 입력" id="keyword" size="15"/> 
+                            <button type="submit">검색하기</button> 
+                        </form>
+                    </div>
+                </div>
+                <hr/>
                 <ul id="placesList"></ul>
                 <div id="pagination"></div>
             </div>
+        </div>
         </>
     );
 };
-export default MapSearch;
+export default Map;
