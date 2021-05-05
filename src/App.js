@@ -8,6 +8,9 @@ import SavePost from './components/SavePost';
 import { Route } from 'react-router-dom';
 import UploadPicturePage from './components/UploadPicturePage';
 
+// slide panel
+import SlidePanel from './components/SlidePanel';
+
 function App() {
   
   
@@ -18,6 +21,7 @@ function App() {
       <Route path="/post/save" component={SavePost} />
       <Route path="/picture" component={UploadPicturePage} />
       <Route path="/map" component={SaveAddressPage} />
+      <Route path="/slidepanel" component={SlidePanel}/>
     </div>
   );
 }
