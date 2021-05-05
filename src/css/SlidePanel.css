@@ -19,14 +19,13 @@
 }
 
 #map-div{
-    width: 400px;
+    width: 300px;
     height: 100%;
     position: fixed;
     top: 0px;
     z-index: 10;
     border: 1px solid wheat;
     background-color: wheat;
-    text-align: center;
     transition: All 0.2s ease;
      -webkit-transition: All 0.2s ease;
      -moz-transition: All 0.2s ease;
@@ -38,5 +37,5 @@
 }
 
 .map-close{
-    right: -402px;
+    right: -302px;
 }
