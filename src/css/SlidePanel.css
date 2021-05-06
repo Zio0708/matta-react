@@ -1,0 +1,41 @@
+.map-open-btn{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.map-close-btn{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#map-div{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    border: 1px solid wheat;
+    background-color: wheat;
+    transition: All 0.2s ease;
+     -webkit-transition: All 0.2s ease;
+     -moz-transition: All 0.2s ease;
+     -o-transition: All 0.2s ease;
+}
+
+.map-open{
+    right: 0px;
+}
+
+.map-close{
+    right: -302px;
+}
