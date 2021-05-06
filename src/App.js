@@ -7,10 +7,11 @@ import SaveAddressPage from './components/SaveAddressPage';
 import SavePost from './components/SavePost';
 import { Route } from 'react-router-dom';
 import UploadPicturePage from './components/UploadPicturePage';
+import PostWritePage from './components/PostWritePage';
 
 function App() {
   
-  
+
   return (
     <div>
       <Route path="/" component={Main} exact/>
@@ -18,6 +19,7 @@ function App() {
       <Route path="/post/save" component={SavePost} />
       <Route path="/picture" component={UploadPicturePage} />
       <Route path="/map" component={SaveAddressPage} />
+      <Route path="/post/write" component={PostWritePage} />
     </div>
   );
 }
