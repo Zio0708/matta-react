@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PostService from '../service/PostService';
 import Map from '../components/Map';
 import Header from '../components/Header';
+import Feed from '../components/Feed';
 import '../css/Main.css';
 import axios from 'axios';
 
@@ -28,11 +29,11 @@ const Main = () => {
                     <div className="feeds-wrapper">
                         <div>글 작성은 어디들어가나요 선생님</div>
                         <div className="feeds-grid-wrapper">
-                            <div>1</div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>4</div>
-                            <div>5피드</div>
+                            <Feed></Feed>
+                            <Feed></Feed>
+                            <Feed></Feed>
+                            <Feed></Feed>
+                            <Feed></Feed>
                         </div>
                     </div>
                     <div className="map-wrapper">
