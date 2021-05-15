@@ -14,6 +14,12 @@ import Zoom from '@material-ui/core/Zoom';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 
+// review 작성 아이콘
+import CreateIcon from '@material-ui/icons/Create';
+
+// 아이콘 클릭 시, 페이지 이동
+import { Link } from 'react-router-dom';
+
 // import '../css/Header.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -68,6 +74,15 @@ const useStyles = makeStyles((theme) => ({
           width: '20ch',
         },
       },
+      menuIcons: {
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      postWriteIcon: {
+        color: 'white'
+      }
 }));
 
 function ScrollTop(props) {
@@ -127,6 +142,15 @@ export default function Header(props) {
                                 }}
                                 inputProps={{ 'aria-label': 'search' }}
                             />
+                        </div>
+
+                        <div className={classes.menuIcons}>
+                          <Link to="/post/write">
+                            <CreateIcon 
+                              className={classes.postWriteIcon}
+                            />
+                          </Link>
+                          
                         </div>
                     </Toolbar>
                 </AppBar>
