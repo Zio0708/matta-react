@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../css/Map.css';
+
+import MapInfoContext from '../context/MapInfoContext';
 
 const { kakao } = window;
 
 const MapSearch = ({searchPlace}) => { 
+    const mapInfo = useContext( MapInfoContext );
+    const [placeName, setPlaceName] = useState(""); 
     //TODO: 리스트 클릭시 해당 정보가 넘어가게 하기.
     useEffect(() => {
         mapInit();
@@ -28,7 +32,7 @@ const MapSearch = ({searchPlace}) => {
 
         function placesSearchCB(data, status, pagination){
             if(status === kakao.maps.services.Status.OK){
-
+                console.log(data);
                 displayPlaces(data);
 
                 displayPagination(pagination);
@@ -48,7 +52,7 @@ const MapSearch = ({searchPlace}) => {
         };
 
         function displayPlaces(places) {
-
+            
             var listEl = document.getElementById('placesList'), 
             menuEl = document.getElementById('menu_wrap'),
             fragment = document.createDocumentFragment(), 
@@ -60,7 +64,7 @@ const MapSearch = ({searchPlace}) => {
         
             // 지도에 표시되고 있는 마커를 제거합니다
             removeMarker();
-            
+            console.log(places);
             for ( var i=0; i<places.length; i++ ) {
         
                 // 마커를 생성하고 지도에 표시합니다
@@ -105,11 +109,11 @@ const MapSearch = ({searchPlace}) => {
         }
         
         // 검색결과 항목을 Element로 반환하는 함수입니다
-        function getListItem(index, places) {
-        
+        const getListItem = (index, places) => {
             var el = document.createElement('li'),
-            itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
-                        '<div class="info">' +
+            itemStr =
+             '<span class="markerbg marker_' + (index+1) + '"></span>' +
+                        '<div   class="info">' +
                         '   <h5>' + places.place_name + '</h5>';
         
             if (places.road_address_name) {
@@ -121,10 +125,21 @@ const MapSearch = ({searchPlace}) => {
                          
               itemStr += '  <span class="tel">' + places.phone  + '</span>' +
                         '</div>';           
-        
+            
             el.innerHTML = itemStr;
             el.className = 'item';
-        
+            el.onclick = (function() {
+                
+                mapInfo.actions.setAddress(places.address_name);
+                mapInfo.actions.setResturant(places.place_name);
+                mapInfo.actions.setLatitude(places.y);
+                mapInfo.actions.setLongitude(places.x);
+                setPlaceName(places.place_name);
+                console.log(mapInfo.state);
+                console.log(placeName);
+
+            });
+            //TODO: el- onclick 완성하기.
             return el;
         }
         
