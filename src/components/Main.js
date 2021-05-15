@@ -13,7 +13,7 @@ const Main = () => {
         PostService.getAllPost()
             .then( response => { console.log( response ); } )
             .catch( response => { console.log( response ); } );
-        UserService.get
+        
         
     }
     );
