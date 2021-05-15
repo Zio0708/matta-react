@@ -108,7 +108,8 @@ export default function Header(props) {
     const classes = useStyles();
 
     return (
-        <React.Fragment className={classes.grow}>
+        //<React.Fragment className={classes.grow}>
+          <>
             <CssBaseline />
                 <AppBar>
                     <Toolbar>
@@ -136,6 +137,7 @@ export default function Header(props) {
                     <KeyboardArrowUpIcon />
                     </Fab>
                 </ScrollTop>
-        </React.Fragment>
+            </>
+        //</React.Fragment>
     );
 }

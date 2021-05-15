@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PostService from '../service/PostService';
+import UserService from '../service/UserService';
 import Map from '../components/Map';
 import Header from '../components/Header';
 import '../css/Main.css';
@@ -10,11 +11,12 @@ const Main = () => {
 
     useEffect(() => {
         PostService.getAllPost()
-        //axios.get('http://jsonplaceholder.typicode.com/users')
             .then( response => { console.log( response ); } )
-            .catch( response => { console.log( response ); } )
-
-    });
+            .catch( response => { console.log( response ); } );
+        
+        
+    }
+    );
     
     return(
         <>
