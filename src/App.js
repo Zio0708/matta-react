@@ -9,6 +9,8 @@ import { Route } from 'react-router-dom';
 import UploadPicturePage from './components/UploadPicturePage';
 import PostWritePage from './components/PostWritePage';
 
+import SimpleReview from './components/SimpleReview';
+
 // slide panel
 import SlidePanel from './components/SlidePanel';
 
@@ -24,6 +26,7 @@ function App() {
       <Route path="/map" component={SaveAddressPage} />
       <Route path="/post/write" component={PostWritePage} />
       <Route path="/slidepanel" component={SlidePanel}/>
+      <Route path="/simple-review" component={SimpleReview} />
     </div>
   );
 }

@@ -1,0 +1,99 @@
+.simple-review-wrapper{
+    height:1000px;
+
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+    background-color: #f9f9f9;
+}
+
+.simple-review-content-wrapper{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    max-width:893px;
+    height:100%;
+
+    margin: auto;
+    background-color: #fff;
+    border: solid #e8e8e8;
+    border-width: 0 1px;
+
+    color:#696969;
+}
+
+.simple-review-table-wrapper{
+    margin-left:auto;
+    margin-right:auto;
+
+    max-width:693px;
+    padding-top:87px;
+}
+
+.simple-review-table{
+    align-items: center;
+
+    width: 100%;
+    
+    text-align: left;
+    line-height: 1.5;
+
+    border-spacing: 5px 0px;
+
+    margin-bottom: 20px;
+}
+
+.simple-review-table tr{
+    width: 100%;
+    vertical-align: top;
+}
+
+.simple-review-table td, .simple-review-table th{  
+    padding: 15px 10px;
+    vertical-align: top;
+    
+    border-top : 1px solid #dfdfdf;
+}
+
+.simple-review-table tr:last-child th, .simple-review-table tr:last-child td{
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.simple-review-table th{
+    font-weight: bold;
+    font-size: 16px;
+    color:#696969;
+
+    text-align: center;
+    vertical-align: middle;
+    
+    width: 18%;
+    min-width: 70px;
+}
+
+#visitedDate {
+    width: 30%;
+    min-width: 130px;
+
+    text-align: center;
+    margin: 0 auto;
+}
+
+#comment{
+    width:90%;
+    border: 1px solid #dfdfdf;
+    height: 32px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline:1px lavender solid; 
+}
+
+td fieldset {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px !important;
+}
