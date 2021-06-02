@@ -97,3 +97,12 @@ td fieldset {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px !important;
 }
+
+.maxLenWarning-inactive {
+    display: none;
+}
+
+.maxLenWarning-active {
+    display: block;
+    color: red;
+}

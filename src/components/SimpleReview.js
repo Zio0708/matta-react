@@ -42,6 +42,28 @@ const SimpleReview = () => {
         setSelectedDate(date);
     };
 
+    // comment 초기화
+    const [comment, setComment] = useState('')
+    const [isActive, setActive] = useState(false);
+
+    const checkCommentLen = (e) => {
+
+        const currentValue = e.target.value;
+
+        if(currentValue.length > 10){
+            if(isActive == false){
+                setActive(true);
+            }
+        }else{
+            if(isActive == true){
+                setActive(false);
+            }
+            setComment(currentValue);
+        }  
+    }
+
+    
+
     return (
         <>
         <Header/>
@@ -71,7 +93,15 @@ const SimpleReview = () => {
                     <tr>
                         <th scope="row">한줄평</th>
                         <td>
-                            <input type="text" id="comment" placeholder="한줄평을 입력해주세요"></input>
+                            <input 
+                                type="text"
+                                id="comment"
+                                placeholder="한줄평을 입력해주세요. (100자 이내)"
+                                onChange={checkCommentLen}
+                                value={comment}
+                            >
+                            </input>
+                            <span className={isActive ? "maxLenWarning-active" : "maxLenWarning-inactive"}>한줄평은 100자를 초과할 수 없습니다.</span>
                         </td>
                     </tr>
                     <tr>
