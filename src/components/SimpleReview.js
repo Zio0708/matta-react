@@ -50,7 +50,7 @@ const SimpleReview = () => {
 
         const currentValue = e.target.value;
 
-        if(currentValue.length > 10){
+        if(currentValue.length > 100){
             if(isActive == false){
                 setActive(true);
             }
